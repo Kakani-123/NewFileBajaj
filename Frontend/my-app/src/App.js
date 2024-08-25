@@ -16,7 +16,6 @@ function App() {
                 body: JSON.stringify({ data: JSON.parse(input) })
             });
             const data = await res.json();
-            console.log(data);  // For debugging
             setResponse(data);
         } catch (error) {
             console.error("Invalid JSON or network error", error);
@@ -29,7 +28,7 @@ function App() {
             <div className="response-container">
                 {selectedOptions.includes('Alphabets') && <div><strong>Alphabets:</strong> {response.alphabets.join(', ')}</div>}
                 {selectedOptions.includes('Numbers') && <div><strong>Numbers:</strong> {response.numbers.join(', ')}</div>}
-                {selectedOptions.includes('Highest lowercase alphabet') && <div><strong>Highest lowercase:</strong> {response.highest_lowercase_alphabet.join(', ')}</div>}
+                {selectedOptions.includes('Highest lowercase alphabet') && <div><strong>Highest lowercase:</strong> {response.highest_lowercase_alphabet}</div>}
             </div>
         );
     };
